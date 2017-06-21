@@ -19,10 +19,8 @@ You may also need to edit the call to `set_current_source_dir()` so that the sou
 
 The following example can be used to analyse the core dump and print a list of threads that are stuck at any given point. This is particularly useful if a number of threads are locked on a semaphore or mutex.
 
-    thread_list = list(x.get_thread_summary())
     thread_summary = {}
-
-    for thread in thread_list:
+    for thread in x.get_thread_summary():
         sig = thread['stack'][0]['signature']
         if sig not in thread_summary:
             thread_summary[sig] = []
